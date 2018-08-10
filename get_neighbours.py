@@ -90,8 +90,11 @@ def _process_args(my_parser, my_args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Find closest N neighbouring terminals from query nodes.')
     parser.add_argument('-t', '--tree', help='Input tree in newick format.', required=True)
-    parser.add_argument('-id', help='Leaf IDs, one-per-line, to get neighbours of.', required=True)
-    parser.add_argument('-neighbours', help='Number of neighbours to get for each leaf', required=False, default=1, type=int)
+    parser.add_argument('-id', help='Tab-delimited file with query node IDs, one-per-line, to get neighbours of. '+\
+                                    'If a second column is included, it should have an alternative name/annotation to'+\
+                                    'include in the output.', required=True)
+    parser.add_argument('-neighbours', help='Number of neighbours to get for each query node',
+                        required=False, default=1, type=int)
 
     args = parser.parse_args()
 
