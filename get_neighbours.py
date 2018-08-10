@@ -49,20 +49,18 @@ def _process_args(my_parser, my_args):
         print("Query\tOther_name\tNeighbour\tDistance\tRank")
     for q_node in my_query_nodes:
         iterations = 0
-        # For each node, keep going up until there are neighbours + 1 required terminals
-
         # Parent of the query
         cur_parent = _get_parent(mytree, q_node)
         parent_terminals = cur_parent.get_terminals()
         n_parent_terminals = len(parent_terminals)
 
+        # For each node, keep going up until there are neighbours + 1 required terminals
         # Find a parent where there are enough neighbours
         while (n_parent_terminals < my_args.neighbours + 1):
-
             cur_parent = _get_parent(mytree, cur_parent)
             parent_terminals = cur_parent.get_terminals()
             n_parent_terminals = len(parent_terminals)
-            # if the current number of parent terminals is more than the threshold,
+            # If the current number of parent terminals is more than the threshold,
             # return the previous terminals
             if n_parent_terminals > NEIGHBOURS_THRESHOLD:
                 parent_terminals = prev_parent_terminals
