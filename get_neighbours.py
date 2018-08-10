@@ -1,8 +1,9 @@
+"""
+Find the N nearest terminal nodes in a tree given a list of query nodes.
+"""
 
 import Bio
 from Bio import Phylo
-from Bio.Phylo import BaseTree
-import numpy as np
 import argparse
 import sys
 import itertools
@@ -93,14 +94,6 @@ if __name__ == "__main__":
     parser.add_argument('-t', '--tree', help='Input tree in newick format.', required=True)
     parser.add_argument('-id', help='Leaf IDs, one-per-line, to get neighbours of.', required=True)
     parser.add_argument('-neighbours', help='Number of neighbours to get for each leaf', required=False, default=1, type=int)
-    # mytree="/Users/julianzaugg/Desktop/ACE/major_projects/skin_microbiome/21_gtdb/gtdb_aureus_080818/gtdb_phylogeny.wag_gamma.tree"
-    # myids = "/Users/julianzaugg/Desktop/ACE/major_projects/skin_microbiome/21_gtdb/batch_gtdb_ids.txt"
-    # myids = "/Users/julianzaugg/Desktop/ACE/major_projects/skin_microbiome/21_gtdb/gtdb_and_sample_ids.tsv"
-    #
-    # myargs = ["-t", mytree,
-    #         "-id", myids,
-    #           "-n", "20"]
-    #args = parser.parse_args(myargs)
 
     args = parser.parse_args()
 
